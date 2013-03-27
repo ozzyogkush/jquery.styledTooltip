@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Styled Tooltip Example</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<link rel="stylesheet" type="text/css" href="css/styledTooltip.css" />
+		<script type="text/javascript" src="jquery-1.7.2.min.js"></script> <!-- REQUIRED FILE -->
+		<script type="text/javascript" src="jquery.styledTooltip.js"></script> <!-- REQUIRED FILE -->
+
+		<style type='text/css'>
+			body {
+				margin:15px 100px;
+			}
+			div[data-gravity] {
+				height:50px;
+				width:300px;
+				border:1px solid grey;
+				padding:10px;
+				margin-bottom:5px;
+			}
+			div[data-gravity]:nth-child(3n+1) {
+				border: none;
+				background-color: #EDFFDD;
+			}
+			div.test-class:nth-child(3n+1) {
+				-webkit-box-shadow:0px 0px 10px rgba(0,0,0,1);
+				-moz-box-shadow:0px 0px 10px rgba(0,0,0,1);
+				box-shadow:0px 0px 10px rgba(0,0,0,1);
+			}
+			div.test-class:nth-child(3n+2) div[data-styled-tooltip] {
+				border: none;
+			}
+		</style>
+	</head>
+	
+	<body>
+		Each of the DIV elements below will receive a tooltip.
+		
+		<button id="show_all">Show All</button>  <button id="hide_all">Hide All</button>
+		
+		<div data-gravity="n" data-header="true">North w/header.</div>
+		
+		<div data-gravity="s" data-header="true">South w/header.</div>
+		
+		<div data-gravity="e" data-header="true">East w/header.</div>
+		
+		<div data-gravity="w">West w/out header.</div>
+		
+		<div data-gravity="nw" data-header="true">North West w/header.</div>
+		
+		<div data-gravity="ne" data-header="true">North East w/header.</div>
+		
+		<div data-gravity="sw" data-header="true">South West w/header.</div>
+		
+		<div data-gravity="se" data-header="true">South East w/header.</div>
+		
+		<div data-gravity="ws">West South w/out header.</div>
+		
+		<div data-gravity="es" data-header="true">East South w/header.</div>
+		
+		<div data-gravity="wn">West North w/out header.</div>
+		
+		<div data-gravity="en" data-header="true">East North w/header.</div>
+		
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('div[data-gravity]').each(function(ti, div) {
+					$(this).MakeStyledToolTip({
+						debug : true,
+						class_name : 'test-class',
+						image_base : 'images',
+						gravity:$(this).attr('data-gravity'),
+						content : $('<div></div>').html($(this).html()),
+						header_content : $(this).attr('data-header') != null ? $('<div></div>').html('HEADER') : null,
+						trigger : 'click',
+						rounded_corners : (ti % 2 == 1)
+					});
+				});
+				
+				$('button#show_all')
+					.on('click', function() {
+					$('div[data-gravity]').MakeStyledToolTip('show');
+				});
+				
+				$('button#hide_all')
+					.on('click', function() {
+					$('div[data-gravity]').MakeStyledToolTip('hide');
+				});
+			});
+		</script>
+	</body>
+</html>

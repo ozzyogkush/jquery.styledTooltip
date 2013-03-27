@@ -1,0 +1,131 @@
+div[data-styled-tooltip="container"] {
+	position: absolute;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="header"] {
+	padding:5px 10px;
+	border:1px solid black;
+	border-bottom:none;
+	background-color:#888;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="content"] {
+	padding:5px 10px;
+	border:1px solid black;
+	background-color:#ccc;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="header"] + div[data-styled-tooltip="content"] {
+	border-top:none;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"] {
+	position: absolute;
+	background-color: transparent;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity] img {
+	position: relative;
+}
+/** NORTH **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="n"] {
+	width:100%;
+	text-align: center;
+}
+/** SOUTH **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="s"] {
+	width:100%;
+	top:100%;
+	text-align: center;
+}
+/** EAST **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="e"] {
+	height:100%;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="e"] img {
+	right: 0px;
+	top:50%;
+	margin-top:-8px; /* move this into a theme -50%;*/
+}
+/** WEST **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="w"] {
+	height:100%;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="w"] img {
+	left: 0px;
+	top:50%;
+	margin-top:-8px; /* move this into a theme -50%;*/
+}
+/** NORTHWEST **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="nw"] {
+	width:100%;
+	text-align: left;
+}
+/** NORTHEAST **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="ne"] {
+	width:100%;
+	text-align: right;
+}
+/** SOUTHWEST **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="sw"] {
+	width:100%;
+	top:100%;
+	text-align: left;
+}
+/** SOUTHEAST **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="se"] {
+	width:100%;
+	top:100%;
+	text-align: right;
+}
+/** EASTNORTH **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="en"] {
+	height:100%;
+	vertical-align: top;
+}
+/** EASTSOUTH **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="es"] {
+	height:100%;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="es"] img {
+	right: 0px;
+	top:100%;
+	margin-top:-16px; /* move this into a theme -100%;*/
+}
+/** WESTNORTH **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="wn"] {
+	height:100%;
+	vertical-align: top;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="wn"] img {
+	left: 0px;
+	top:0%;
+}
+/** WESTSOUTH **/
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="ws"] {
+	height:100%;
+}
+div[data-styled-tooltip="container"] div[data-styled-tooltip="arrow"][data-styled-tooltip-gravity="ws"] img {
+	left: 0px;
+	top:100%;
+	margin-top:-16px; /* move this into a theme -100%;*/
+}
+
+/** Adds proper border radius styles to tooltips with the 'rounded' class **/
+div[data-styled-tooltip="container"].rounded,
+div[data-styled-tooltip="container"].rounded div[data-styled-tooltip="content"] {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+div[data-styled-tooltip="container"].rounded div[data-styled-tooltip="header"] {
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+div[data-styled-tooltip="container"].rounded div[data-styled-tooltip="header"] + div[data-styled-tooltip="content"] {
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
